@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rong Chen Portfolio Layout</title>
+  <style>
+    :root {
+      --bg: #f3efe8;
+      --panel: #fbf8f3;
+      --ink: #181614;
+      --muted: #645c55;
+      --line: #d8cdc0;
+      --accent: #a95b3f;
+      --accent-soft: #dbc2b4;
+      --shadow: 0 18px 60px rgba(32, 20, 10, 0.08);
+      --max: 1280px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(169, 91, 63, 0.12), transparent 22rem),
+        linear-gradient(180deg, #f7f3ed 0%, #f3efe8 100%);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 26px 0 18px;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .topbar nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+    }
+
+    .cover-page {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+      padding: 18px 0 48px;
+    }
+
+    .cover-sidebar,
+    .cover-main {
+      background: rgba(251, 248, 243, 0.82);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(216, 205, 192, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .cover-sidebar {
+      padding: 34px 28px;
+    }
+
+    .cover-main {
+      padding: 34px;
+    }
+
+    .cover-name {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .cover-role {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .sidebar-group {
+      margin-bottom: 26px;
+    }
+
+    .sidebar-group h3 {
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-list,
+    .skill-list,
+    .software-list {
+      display: grid;
+      gap: 10px;
+      font-size: 15px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .contact-row span:first-child {
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      padding-top: 3px;
+    }
+
+    .skill-list div,
+    .software-list div {
+      color: var(--muted);
+    }
+
+    .cover-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .cover-gallery figure {
+      margin: 0;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 10px;
+    }
+
+    .cover-gallery img {
+      width: 100%;
+      aspect-ratio: 0.62 / 1;
+      object-fit: cover;
+      background: #efe8dd;
+    }
+
+    .cover-intro {
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 34px;
+    }
+
+    .cv-block h3 {
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .cv-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .cv-year {
+      color: var(--muted);
+      font-size: 14px;
+      padding-top: 2px;
+    }
+
+    .cv-item strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 92px);
+      line-height: 0.95;
+      font-weight: 500;
+      max-width: 8ch;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      padding: 12px 0 22px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 500;
+    }
+
+    .section-title p {
+      max-width: 56ch;
+      color: var(--muted);
+    }
+
+    .projects {
+      padding: 24px 0 20px;
+    }
+
+    .pdf-page,
+    .profile-page {
+      margin-bottom: 44px;
+      background: rgba(251, 248, 243, 0.9);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-index {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pdf-page h3,
+    .profile-page h3 {
+      font-size: 28px;
+      line-height: 1.05;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    .tags span {
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: #f7f2eb;
+    }
+
+    .pdf-thumb {
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      background: white;
+      padding: 14px;
+    }
+
+    .pdf-thumb img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: #f3eee7;
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 34px;
+    }
+
+    .profile-intro {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .profile-side,
+    .profile-body {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .profile-side h4,
+    .profile-body h4 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .profile-list,
+    .profile-text {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .profile-text p {
+      margin: 0 0 14px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .gallery figure {
+      margin: 0;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 10px;
+    }
+
+    .gallery figure:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #efe8dd;
+    }
+
+    .gallery figcaption {
+      font-size: 13px;
+      color: var(--muted);
+      padding-top: 8px;
+    }
+
+    .notes {
+      padding: 32px 0 80px;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .note-card {
+      padding: 24px;
+      background: rgba(251, 248, 243, 0.88);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .note-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .note-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 20px 0 42px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 980px) {
+      .cover-page,
+      .page-head,
+      .profile-layout,
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-head {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .cover-gallery,
+      .cv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-shell {
+        width: min(calc(100% - 24px), var(--max));
+      }
+
+      .topbar {
+        padding-top: 18px;
+        gap: 12px;
+      }
+
+      .hero-copy,
+      .cover-sidebar,
+      .cover-main,
+      .pdf-page,
+      .profile-page,
+      .note-card {
+        padding: 18px;
+      }
+
+      .cover-gallery,
+      .cv-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery figure:first-child {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <div>Rong Chen</div>
+      <nav>
+        <a href="#projects">Projects</a>
+      </nav>
+    </header>
+
+    <section class="cover-page">
+      <aside class="cover-sidebar">
+        <div class="cover-name">Rong Chen</div>
+        <div class="cover-role">Interior Design Portfolio</div>
+
+        <div class="sidebar-group">
+          <h3>Contact</h3>
+          <div class="contact-list">
+            <div class="contact-row"><span>Phone</span><span>[Add your phone number]</span></div>
+            <div class="contact-row"><span>Email</span><span>[Add your email]</span></div>
+            <div class="contact-row"><span>Instagram</span><span>[Add your Instagram]</span></div>
+            <div class="contact-row"><span>LinkedIn</span><span>[Add your LinkedIn]</span></div>
+            <div class="contact-row"><span>Website</span><span>[Paste your Wix URL here]</span></div>
+          </div>
+        </div>
+
+        <div class="sidebar-group">
+          <h3>Skills</h3>
+          <div class="skill-list">
+            <div>Spatial storytelling</div>
+            <div>Concept development</div>
+            <div>Site analysis</div>
+            <div>Model making</div>
+            <div>Visual communication</div>
+            <div>Orthographic drawing</div>
+            <div>Material research</div>
+            <div>Exhibition narrative</div>
+          </div>
+        </div>
+
+        <div class="sidebar-group">
+          <h3>Software</h3>
+          <div class="software-list">
+            <div>AutoCAD</div>
+            <div>SketchUp / Rhino</div>
+            <div>Adobe InDesign</div>
+            <div>Adobe Photoshop</div>
+            <div>Illustrator</div>
+            <div>Rendering tools</div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="cover-main">
+        <div class="cover-gallery">
+          <figure>
+            <img src="website_assets/images/fashion-p21.png" alt="Portfolio cover image 1">
+          </figure>
+          <figure>
+            <img src="website_assets/images/reuse-p48.png" alt="Portfolio cover image 2">
+          </figure>
+          <figure>
+            <img src="website_assets/images/bar-p21.png" alt="Portfolio cover image 3">
+          </figure>
+        </div>
+
+        <p class="cover-intro">
+          I am an interior design student whose work explores adaptive reuse, spatial narrative,
+          exhibition atmosphere and socially engaging interiors. My projects focus on how
+          materials, culture and human experience can shape spaces that feel immersive,
+          purposeful and memorable.
+        </p>
+
+        <div class="cv-grid">
+          <div class="cv-block">
+            <h3>Project Focus</h3>
+            <div class="cv-item">
+              <div class="cv-year">2025</div>
+              <div>
+                <strong>Passion for Fashion</strong>
+                Exhibition design exploring denim culture, identity and the relationship between time and space.
+              </div>
+            </div>
+            <div class="cv-item">
+              <div class="cv-year">2025</div>
+              <div>
+                <strong>Student Bar</strong>
+                A social interior proposal designed to support student interaction, leisure and spatial flexibility.
+              </div>
+            </div>
+            <div class="cv-item">
+              <div class="cv-year">2024</div>
+              <div>
+                <strong>Radical Reuse</strong>
+                An adaptive reuse proposal developed through contextual research, program strategy and spatial intervention.
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-block">
+            <h3>Profile</h3>
+            <div class="cv-item">
+              <div class="cv-year">Interest</div>
+              <div>
+                <strong>Interior and Exhibition Design</strong>
+                Interested in narrative environments, visual atmosphere, material contrast and public engagement.
+              </div>
+            </div>
+            <div class="cv-item">
+              <div class="cv-year">Approach</div>
+              <div>
+                <strong>Research to Resolution</strong>
+                I develop projects from site analysis and concept building through to drawings, models and final visuals.
+              </div>
+            </div>
+            <div class="cv-item">
+              <div class="cv-year">Goal</div>
+              <div>
+                <strong>Professional Portfolio</strong>
+                This website curates selected academic work into a concise online profile for tutors, studios and future opportunities.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="section-title">
+        <h2>Selected Works</h2>
+        <p>
+          Each project returns to the original image-led layout, using selected pages rather
+          than full contact sheets. The header is kept compact so the images can occupy more
+          of the page.
+        </p>
+      </div>
+
+      <article class="pdf-page">
+        <div class="page-head">
+          <div>
+            <div class="project-index">01 / Level 4 Portfolio</div>
+            <h3>Materials, installation and spatial atmosphere</h3>
+          </div>
+          <div class="tags">
+            <span>Process</span>
+            <span>Materiality</span>
+            <span>Construction</span>
+            <span>Final Render</span>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="website_assets/images/l4-p51.png" alt="Level 4 portfolio page 51">
+            <figcaption>Lead image for website section header.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/l4-p14.png" alt="Level 4 portfolio page 14">
+            <figcaption>Model and display development.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/l4-p19.png" alt="Level 4 portfolio page 19">
+            <figcaption>Material and facade expression.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/l4-p24.png" alt="Level 4 portfolio page 24">
+            <figcaption>Resolved installation overview.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/l4-p37.png" alt="Level 4 portfolio page 37">
+            <figcaption>Spatial concept and interior mood.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="pdf-page">
+        <div class="page-head">
+          <div>
+            <div class="project-index">02 / Radical Reuse</div>
+            <h3>Urban context, adaptive reuse and proposal development</h3>
+          </div>
+          <div class="tags">
+            <span>Context</span>
+            <span>Adaptive Reuse</span>
+            <span>Narrative</span>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="website_assets/images/reuse-p39.png" alt="Radical Reuse page 39">
+            <figcaption>Exploded design or proposal view as lead image.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/reuse-p4.png" alt="Radical Reuse page 4">
+            <figcaption>Opportunity map and site positioning.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/reuse-p17.png" alt="Radical Reuse page 17">
+            <figcaption>Elevation and facade relationship.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/reuse-p23.png" alt="Radical Reuse page 23">
+            <figcaption>Design proposal and section logic.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/reuse-p48.png" alt="Radical Reuse page 48">
+            <figcaption>Final atmosphere and interior view.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="pdf-page">
+        <div class="page-head">
+          <div>
+            <div class="project-index">03 / Passion for Fashion</div>
+            <h3>Exhibition storytelling through denim culture and space</h3>
+          </div>
+          <div class="tags">
+            <span>Exhibition</span>
+            <span>Narrative Space</span>
+            <span>Culture</span>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="website_assets/images/fashion-p21.png" alt="Passion for Fashion page 21">
+            <figcaption>Main immersive visual for the project header.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/fashion-p3.png" alt="Passion for Fashion page 3">
+            <figcaption>Concept and exhibition narrative setup.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/fashion-p8.png" alt="Passion for Fashion page 8">
+            <figcaption>Site research and project location.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/fashion-p11.png" alt="Passion for Fashion page 11">
+            <figcaption>Spatial identity and visual world-building.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/fashion-p23.png" alt="Passion for Fashion page 23">
+            <figcaption>Final visitor experience and interaction.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="pdf-page">
+        <div class="page-head">
+          <div>
+            <div class="project-index">04 / Student Bar</div>
+            <h3>Social space, program strategy and student-focused interaction</h3>
+          </div>
+          <div class="tags">
+            <span>Hospitality</span>
+            <span>Social Space</span>
+            <span>Spatial Planning</span>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="website_assets/images/bar-p21.png" alt="Student Bar page 21">
+            <figcaption>Lead image showing the strongest final visual set.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/bar-p1.png" alt="Student Bar page 1">
+            <figcaption>Title and opening identity.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/bar-p10.png" alt="Student Bar page 10">
+            <figcaption>Overall design development and perspective.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/bar-p17.png" alt="Student Bar page 17">
+            <figcaption>Spatial strategy and zoning.</figcaption>
+          </figure>
+          <figure>
+            <img src="website_assets/images/bar-p27.png" alt="Student Bar page 27">
+            <figcaption>Project conclusion and final summary layout.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="profile-page">
+        <div class="page-head">
+          <div>
+            <div class="project-index">05 / Proof of Online Profile</div>
+            <h3>LinkedIn and Professional Profile</h3>
+          </div>
+          <div class="tags">
+            <span>LinkedIn</span>
+            <span>Website</span>
+            <span>Profile</span>
+          </div>
+        </div>
+        <p class="profile-intro">
+          This page is reserved for your online profile field. It can describe how your
+          LinkedIn, website and public-facing portfolio work together as a coherent
+          professional identity. Images are intentionally not placed here yet.
+        </p>
+        <div class="profile-layout">
+          <div class="profile-side">
+            <h4>Section Notes</h4>
+            <div class="profile-list">
+              <div>Profile name and professional title</div>
+              <div>Short summary / about section</div>
+              <div>Education and selected experience</div>
+              <div>Skills and software keywords</div>
+              <div>Website and social links</div>
+            </div>
+          </div>
+          <div class="profile-body">
+            <h4>Content Placeholder</h4>
+            <div class="profile-text">
+              <p>
+                This area can later hold a written explanation of your online presence,
+                such as how the LinkedIn page supports the website, what materials are
+                uploaded there, and how your digital profile presents your work to tutors,
+                studios and future collaborators.
+              </p>
+              <p>
+                If you want, this page can also be reformatted later to match the screenshot
+                style you showed, with a title like "Proof of LinkedIn" and a more document-like
+                composition. For now it remains image-free as requested.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      Portfolio structure draft.
+    </footer>
+  </div>
+</body>
+</html>
