@@ -113,7 +113,6 @@
     }
 
     .hero-sheet,
-    .contact-sheet,
     .project-header,
     .folio-sheet {
       width: min(100%, var(--max-width));
@@ -128,8 +127,7 @@
       position: relative;
     }
 
-    .hero-sheet,
-    .contact-sheet {
+    .hero-sheet {
       aspect-ratio: var(--a3-ratio);
       padding: clamp(26px, 3vw, 40px);
       margin-top: 22px;
@@ -140,7 +138,6 @@
     }
 
     .hero-sheet::before,
-    .contact-sheet::before,
     .folio-sheet::before,
     .project-header::before {
       content: "";
@@ -157,8 +154,6 @@
 
     .hero-copy,
     .hero-visual,
-    .contact-copy,
-    .contact-visual,
     .header-copy,
     .sheet-note,
     .sheet-media,
@@ -267,92 +262,6 @@
       grid-template-rows: minmax(0, 1fr) auto;
       gap: 20px;
       min-height: 0;
-    }
-
-    .contact-copy,
-    .contact-visual {
-      display: grid;
-      min-height: 0;
-    }
-
-    .contact-copy {
-      align-content: start;
-      gap: 18px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .contact-card {
-      min-height: 120px;
-      padding: 18px 20px;
-      border-radius: 20px;
-      border: 1px solid rgba(23, 20, 17, 0.08);
-      background: rgba(255, 255, 255, 0.62);
-    }
-
-    .contact-card strong {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .contact-card span {
-      display: block;
-      font-size: 18px;
-      color: rgba(23, 20, 17, 0.88);
-    }
-
-    .contact-note {
-      padding: 18px 20px;
-      border-left: 3px solid rgba(140, 94, 60, 0.6);
-      background: rgba(255, 255, 255, 0.55);
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .contact-visual {
-      grid-template-rows: minmax(0, 1fr) auto;
-      gap: 18px;
-    }
-
-    .contact-panel {
-      display: grid;
-      gap: 14px;
-      padding: 22px;
-      border-radius: 24px;
-      border: 1px solid rgba(23, 20, 17, 0.08);
-      background: linear-gradient(180deg, rgba(248, 242, 235, 0.78), rgba(255, 255, 255, 0.76));
-      box-shadow: var(--shadow);
-    }
-
-    .contact-panel strong {
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .contact-panel ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .contact-panel li {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(23, 20, 17, 0.08);
-      font-size: 16px;
     }
 
     .hero-image-frame {
@@ -735,7 +644,6 @@
 
     @media (max-width: 1180px) {
       .hero-sheet,
-      .contact-sheet,
       .project-header {
         grid-template-columns: 1fr;
         aspect-ratio: auto;
@@ -779,14 +687,12 @@
       }
 
       .hero-sheet,
-      .contact-sheet,
       .project-header,
       .folio-sheet {
         border-radius: 22px;
       }
 
       .hero-sheet,
-      .contact-sheet,
       .project-header {
         padding: 18px;
       }
@@ -815,53 +721,54 @@
         <a href="#project-reuse">Radical Reuse</a>
         <a href="#project-fashion">Passion for Fashion</a>
         <a href="#project-bar">Student Bar</a>
-        <a href="#linkedin-page">LinkedIn</a>
       </nav>
     </header>
 
     <section class="hero-sheet reveal" id="overview">
       <div class="hero-copy">
-        <div class="eyebrow">Basic Information</div>
-        <h1>Rong Chen</h1>
+        <div class="eyebrow">Portfolio Reset</div>
+        <h1>A3 boards rebuilt for web reading.</h1>
         <p class="lead">
-          Interior design and spatial storytelling portfolio.
-          Replace this text with your short self-introduction, current course information, and a one-line summary of your design focus.
+          This version treats the portfolio section as a sequence of landscape presentation boards:
+          larger spreads, newly exported screenshots, and a short brief on every page so the work reads
+          more like a curated review document than a standard website gallery.
         </p>
         <div class="hero-meta">
           <div>
-            <strong>Email</strong>
-            <span>your.email@example.com</span>
+            <strong>Format</strong>
+            <span>Every portfolio board follows an A3 landscape proportion with generous margins and clearer hierarchy.</span>
           </div>
           <div>
-            <strong>Phone</strong>
-            <span>+44 (0)7XXX XXX XXX</span>
+            <strong>Image Count</strong>
+            <span>Each project now uses 20 refreshed screenshots instead of the previous short-list gallery approach.</span>
           </div>
           <div>
-            <strong>Location</strong>
-            <span>London, United Kingdom</span>
+            <strong>Reading Logic</strong>
+            <span>Every page carries a phase label, a concise brief, and the source PDF page for fast review.</span>
           </div>
         </div>
         <div class="hero-note">
-          Fill this page with your course, school, graduation year, contact details, and one clear sentence about the type of work you want to be hired for.
+          The visual language is based on your uploaded example: light paper background, strong white space,
+          calm typography, architectural pacing, and an emphasis on letting one board read at a time.
         </div>
       </div>
 
       <div class="hero-visual">
         <div class="hero-image-frame">
-          <img src="website_assets/images/crops/l4/page-14-crop-01.jpg" alt="Portfolio profile preview">
+          <img src="website_assets/images/pages/l4/page-03.png" alt="Portfolio preview board">
         </div>
         <div class="brief-grid">
           <article class="brief-card">
-            <h4>Course</h4>
-            <p>BA Interior Design / MA Interior Architecture / Your programme name here.</p>
+            <h4>Re-exported pages</h4>
+            <p>All project visuals are now rebuilt from isolated crop assets under `website_assets/images/crops`.</p>
           </article>
           <article class="brief-card">
-            <h4>School</h4>
-            <p>University name, campus, and year can be added here in the same format as your CV.</p>
+            <h4>Board-by-board rhythm</h4>
+            <p>Each board fixes the text block in one stable position and uses the remaining area only for images.</p>
           </article>
           <article class="brief-card">
-            <h4>Portfolio Link</h4>
-            <p>Add your website URL, portfolio PDF note, or a short sentence about available work samples.</p>
+            <h4>Better review flow</h4>
+            <p>Project intros summarise concept, medium and narrative arc before the reader moves into the 20-page sequence.</p>
           </article>
         </div>
       </div>
@@ -870,52 +777,11 @@
     <div class="projects-nav" id="projects-nav"></div>
     <main id="projects-root"></main>
 
-    <section class="contact-sheet reveal" id="linkedin-page">
-      <div class="contact-copy">
-        <div class="eyebrow">LinkedIn Page</div>
-        <h1>LinkedIn & Contact</h1>
-        <p class="lead">
-          Keep the final page for recruiter-facing contact details.
-          Replace the placeholders below with your real LinkedIn URL, email, phone, and portfolio links.
-        </p>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <strong>LinkedIn</strong>
-            <span>linkedin.com/in/your-name</span>
-          </div>
-          <div class="contact-card">
-            <strong>Email</strong>
-            <span>your.email@example.com</span>
-          </div>
-          <div class="contact-card">
-            <strong>Phone</strong>
-            <span>+44 (0)7XXX XXX XXX</span>
-          </div>
-          <div class="contact-card">
-            <strong>Portfolio</strong>
-            <span>your-portfolio-site.com</span>
-          </div>
-        </div>
-        <div class="contact-note">
-          You can also use this final page for QR codes, CV download links, Instagram, Behance, or a short availability note.
-        </div>
-      </div>
-
-      <div class="contact-visual">
-        <div class="hero-image-frame">
-          <img src="website_assets/images/crops/bar/page-21-crop-09.jpg" alt="Contact page visual">
-        </div>
-        <div class="contact-panel">
-          <strong>Suggested Final Page Content</strong>
-          <ul>
-            <li>Full name and professional title</li>
-            <li>LinkedIn profile URL</li>
-            <li>Email address and phone number</li>
-            <li>Website, PDF portfolio or QR code</li>
-            <li>Location and work availability</li>
-          </ul>
-        </div>
-      </div>
+    <section class="section-endnote reveal">
+      <strong>Layout Note</strong>
+      The portfolio pages below are intentionally presented as a long sequence of A3 landscape boards.
+      On desktop they read like review sheets; on smaller screens they stack vertically while keeping the same
+      content hierarchy and per-page briefs.
     </section>
 
     <footer class="footer">
@@ -1032,7 +898,6 @@
 
     function createHeader(project) {
       const phaseTags = project.phases.map((phase) => `<span>${phase.name}</span>`).join("");
-      const heroImage = cropManifest[project.slug]?.crops?.[0]?.src || project.boardImage;
       return `
         <section class="project-block reveal" id="${project.anchor}">
           <article class="project-header">
@@ -1062,7 +927,7 @@
             </div>
             <div class="project-hero-media">
               <div class="hero-image-frame">
-                <img src="${heroImage}" alt="${project.title} hero board" loading="lazy">
+                <img src="${project.boardImage}" alt="${project.title} hero board" loading="lazy">
               </div>
               <div class="phase-strip">${phaseTags}</div>
             </div>
