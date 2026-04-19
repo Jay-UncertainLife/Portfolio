@@ -3,14 +3,14 @@ window.portfolioCropManifest = {
     "sheets": 5,
     "crops": [
       {
-        "src": "website_assets/images/crops/l4/page-03-crop-01.jpg",
-        "page": 3,
-        "width": 2548,
-        "height": 1722,
-        "aspect": 1.4797,
-        "areaRatio": 0.46861,
+        "src": "website_assets/images/crops/l4/page-04-crop-01.jpg",
+        "page": 4,
+        "width": 2129,
+        "height": 2383,
+        "aspect": 0.8934,
+        "areaRatio": 0.45,
         "source": "fallback-segmentation",
-        "score": 4.26165
+        "score": 4.0
       },
       {
         "src": "website_assets/images/crops/l4/page-03-crop-05.jpg",
@@ -211,34 +211,34 @@ window.portfolioCropManifest = {
         "score": 0.53109
       },
       {
-        "src": "website_assets/images/crops/reuse/page-07-crop-09.jpg",
-        "page": 7,
-        "width": 394,
-        "height": 425,
-        "aspect": 0.9271,
-        "areaRatio": 0.04071,
+        "src": "website_assets/images/crops/reuse/page-17-crop-01.jpg",
+        "page": 17,
+        "width": 1332,
+        "height": 1740,
+        "aspect": 0.7655,
+        "areaRatio": 0.16,
         "source": "pdf-object",
-        "score": 0.47592
+        "score": 2.0
       },
       {
-        "src": "website_assets/images/crops/reuse/page-09-crop-04.jpg",
-        "page": 9,
-        "width": 2366,
-        "height": 1175,
-        "aspect": 2.0136,
-        "areaRatio": 0.30539,
+        "src": "website_assets/images/crops/reuse/page-19-crop-01.jpg",
+        "page": 19,
+        "width": 2115,
+        "height": 1817,
+        "aspect": 1.164,
+        "areaRatio": 0.26,
         "source": "pdf-object",
-        "score": 3.28233
+        "score": 2.7
       },
       {
-        "src": "website_assets/images/crops/reuse/page-10-crop-03.jpg",
-        "page": 10,
-        "width": 1656,
-        "height": 1767,
-        "aspect": 0.9372,
-        "areaRatio": 0.17947,
+        "src": "website_assets/images/crops/reuse/page-26-crop-01.jpg",
+        "page": 26,
+        "width": 764,
+        "height": 664,
+        "aspect": 1.1506,
+        "areaRatio": 0.08,
         "source": "pdf-object",
-        "score": 2.3968
+        "score": 1.0
       },
       {
         "src": "website_assets/images/crops/reuse/page-10-crop-04.jpg",
