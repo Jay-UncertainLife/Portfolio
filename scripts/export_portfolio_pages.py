@@ -23,6 +23,19 @@ MIN_DIMENSION_PX = 220
 DESIRED_SHEETS_PER_PROJECT = 5
 IMAGES_PER_SHEET = 3
 
+EXCLUDED_CROPS = {
+    "l4": {
+        "page-03-crop-01.jpg",
+    },
+    "reuse": {
+        "page-07-crop-09.jpg",
+        "page-09-crop-04.jpg",
+        "page-10-crop-03.jpg",
+    },
+    "fashion": set(),
+    "bar": set(),
+}
+
 PROJECTS = {
     "l4": {
         "pdf": ROOT / "Rong Chen-L4-Portfolio2023-2024.pdf",
@@ -74,6 +87,7 @@ def save_crop(
     width, height = image.size
     return {
       "src": f"website_assets/images/crops/{slug}/{filename}",
+      "filename": filename,
       "page": page_number,
       "width": width,
       "height": height,
@@ -216,16 +230,24 @@ def evenly_sample(items: list[dict], count: int) -> list[dict]:
 
 
 def build_project_manifest(crops: list[dict]) -> dict:
+    eligible = [
+        crop for crop in crops
+        if crop["filename"] not in EXCLUDED_CROPS.get(crop["src"].split("/")[3], set())
+    ]
     sorted_crops = sorted(
-        crops,
+        eligible,
         key=lambda item: (item["page"], -item["score"], -item["areaRatio"], item["src"]),
     )
     required = DESIRED_SHEETS_PER_PROJECT * IMAGES_PER_SHEET
     selected = evenly_sample(sorted_crops, min(required, len(sorted_crops)))
+    for item in selected:
+        item.pop("filename", None)
+    for item in eligible:
+        item.pop("filename", None)
     return {
         "sheets": max(4, min(DESIRED_SHEETS_PER_PROJECT, len(selected) // IMAGES_PER_SHEET)),
         "crops": selected,
-        "totalCrops": len(crops),
+        "totalCrops": len(eligible),
     }
 
 

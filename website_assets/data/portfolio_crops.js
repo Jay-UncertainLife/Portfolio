@@ -3,27 +3,27 @@ window.portfolioCropManifest = {
     "sheets": 5,
     "crops": [
       {
-        "src": "website_assets/images/crops/l4/page-03-crop-01.jpg",
+        "src": "website_assets/images/crops/l4/page-03-crop-02.jpg",
         "page": 3,
-        "width": 2548,
-        "height": 1722,
-        "aspect": 1.4797,
-        "areaRatio": 0.46861,
+        "width": 1052,
+        "height": 617,
+        "aspect": 1.705,
+        "areaRatio": 0.06932,
         "source": "fallback-segmentation",
-        "score": 4.26165
+        "score": 1.09866
       },
       {
-        "src": "website_assets/images/crops/l4/page-03-crop-05.jpg",
-        "page": 3,
-        "width": 665,
-        "height": 616,
-        "aspect": 1.0795,
-        "areaRatio": 0.04375,
+        "src": "website_assets/images/crops/l4/page-04-crop-01.jpg",
+        "page": 4,
+        "width": 2129,
+        "height": 2383,
+        "aspect": 0.8934,
+        "areaRatio": 0.54185,
         "source": "fallback-segmentation",
-        "score": 0.78559
+        "score": 4.57109
       },
       {
-        "src": "website_assets/images/crops/l4/page-04-crop-04.jpg",
+        "src": "website_assets/images/crops/l4/page-04-crop-05.jpg",
         "page": 4,
         "width": 547,
         "height": 547,
@@ -33,54 +33,54 @@ window.portfolioCropManifest = {
         "score": 0.64121
       },
       {
-        "src": "website_assets/images/crops/l4/page-06-crop-02.jpg",
+        "src": "website_assets/images/crops/l4/page-06-crop-03.jpg",
         "page": 6,
-        "width": 708,
-        "height": 859,
-        "aspect": 0.8242,
-        "areaRatio": 0.06495,
+        "width": 707,
+        "height": 860,
+        "aspect": 0.8221,
+        "areaRatio": 0.06494,
         "source": "fallback-segmentation",
-        "score": 0.91517
+        "score": 0.91497
       },
       {
-        "src": "website_assets/images/crops/l4/page-06-crop-06.jpg",
-        "page": 6,
-        "width": 706,
-        "height": 859,
-        "aspect": 0.8219,
-        "areaRatio": 0.06477,
+        "src": "website_assets/images/crops/l4/page-08-crop-01.jpg",
+        "page": 8,
+        "width": 3618,
+        "height": 2128,
+        "aspect": 1.7002,
+        "areaRatio": 0.82228,
         "source": "fallback-segmentation",
-        "score": 0.91292
+        "score": 6.38366
       },
       {
-        "src": "website_assets/images/crops/l4/page-14-crop-01.jpg",
+        "src": "website_assets/images/crops/l4/page-14-crop-02.jpg",
         "page": 14,
-        "width": 1910,
-        "height": 2382,
-        "aspect": 0.8018,
-        "areaRatio": 0.48591,
+        "width": 772,
+        "height": 1028,
+        "aspect": 0.751,
+        "areaRatio": 0.08476,
         "source": "fallback-segmentation",
-        "score": 4.23544
+        "score": 1.15763
       },
       {
-        "src": "website_assets/images/crops/l4/page-14-crop-05.jpg",
-        "page": 14,
-        "width": 771,
-        "height": 1027,
-        "aspect": 0.7507,
-        "areaRatio": 0.08457,
-        "source": "fallback-segmentation",
-        "score": 1.15528
-      },
-      {
-        "src": "website_assets/images/crops/l4/page-16-crop-04.jpg",
+        "src": "website_assets/images/crops/l4/page-16-crop-01.jpg",
         "page": 16,
-        "width": 665,
-        "height": 882,
-        "aspect": 0.754,
-        "areaRatio": 0.06264,
+        "width": 2222,
+        "height": 1252,
+        "aspect": 1.7748,
+        "areaRatio": 0.29712,
         "source": "fallback-segmentation",
-        "score": 0.88687
+        "score": 3.2327
+      },
+      {
+        "src": "website_assets/images/crops/l4/page-18-crop-01.jpg",
+        "page": 18,
+        "width": 2464,
+        "height": 2388,
+        "aspect": 1.0318,
+        "areaRatio": 0.62842,
+        "source": "fallback-segmentation",
+        "score": 5.22055
       },
       {
         "src": "website_assets/images/crops/l4/page-20-crop-03.jpg",
@@ -153,7 +153,7 @@ window.portfolioCropManifest = {
         "score": 6.89967
       }
     ],
-    "totalCrops": 57,
+    "totalCrops": 56,
     "pages": [
       3,
       4,
@@ -201,114 +201,114 @@ window.portfolioCropManifest = {
         "score": 0.50991
       },
       {
-        "src": "website_assets/images/crops/reuse/page-07-crop-08.jpg",
+        "src": "website_assets/images/crops/reuse/page-07-crop-02.jpg",
         "page": 7,
-        "width": 426,
-        "height": 454,
-        "aspect": 0.9383,
-        "areaRatio": 0.04703,
+        "width": 425,
+        "height": 480,
+        "aspect": 0.8854,
+        "areaRatio": 0.0496,
         "source": "pdf-object",
-        "score": 0.53109
+        "score": 0.55361
       },
       {
-        "src": "website_assets/images/crops/reuse/page-07-crop-09.jpg",
+        "src": "website_assets/images/crops/reuse/page-07-crop-03.jpg",
         "page": 7,
-        "width": 394,
-        "height": 425,
-        "aspect": 0.9271,
-        "areaRatio": 0.04071,
+        "width": 354,
+        "height": 480,
+        "aspect": 0.7375,
+        "areaRatio": 0.04132,
         "source": "pdf-object",
-        "score": 0.47592
+        "score": 0.48117
       },
       {
-        "src": "website_assets/images/crops/reuse/page-09-crop-04.jpg",
+        "src": "website_assets/images/crops/reuse/page-09-crop-03.jpg",
         "page": 9,
-        "width": 2366,
-        "height": 1175,
-        "aspect": 2.0136,
-        "areaRatio": 0.30539,
+        "width": 1349,
+        "height": 1313,
+        "aspect": 1.0274,
+        "areaRatio": 0.20344,
         "source": "pdf-object",
-        "score": 3.28233
+        "score": 2.65144
       },
       {
-        "src": "website_assets/images/crops/reuse/page-10-crop-03.jpg",
+        "src": "website_assets/images/crops/reuse/page-10-crop-02.jpg",
         "page": 10,
-        "width": 1656,
-        "height": 1767,
-        "aspect": 0.9372,
-        "areaRatio": 0.17947,
+        "width": 970,
+        "height": 1348,
+        "aspect": 0.7196,
+        "areaRatio": 0.17321,
         "source": "pdf-object",
-        "score": 2.3968
+        "score": 2.03095
       },
       {
-        "src": "website_assets/images/crops/reuse/page-10-crop-04.jpg",
-        "page": 10,
-        "width": 823,
-        "height": 945,
-        "aspect": 0.8709,
-        "areaRatio": 0.0477,
+        "src": "website_assets/images/crops/reuse/page-15-crop-06.jpg",
+        "page": 15,
+        "width": 849,
+        "height": 681,
+        "aspect": 1.2467,
+        "areaRatio": 0.07055,
         "source": "pdf-object",
-        "score": 0.92469
+        "score": 1.05874
       },
       {
-        "src": "website_assets/images/crops/reuse/page-15-crop-08.jpg",
+        "src": "website_assets/images/crops/reuse/page-15-crop-01.jpg",
         "page": 15,
         "width": 830,
         "height": 656,
         "aspect": 1.2652,
-        "areaRatio": 0.06248,
+        "areaRatio": 0.06247,
         "source": "pdf-object",
-        "score": 0.98788
+        "score": 0.98778
       },
       {
-        "src": "website_assets/images/crops/reuse/page-15-crop-09.jpg",
+        "src": "website_assets/images/crops/reuse/page-15-crop-07.jpg",
         "page": 15,
-        "width": 830,
-        "height": 656,
-        "aspect": 1.2652,
-        "areaRatio": 0.06244,
+        "width": 656,
+        "height": 830,
+        "aspect": 0.7904,
+        "areaRatio": 0.06253,
         "source": "pdf-object",
-        "score": 0.98765
+        "score": 0.85816
       },
       {
-        "src": "website_assets/images/crops/reuse/page-17-crop-02.jpg",
-        "page": 17,
-        "width": 2103,
-        "height": 1401,
-        "aspect": 1.5011,
-        "areaRatio": 0.19851,
+        "src": "website_assets/images/crops/reuse/page-19-crop-01.jpg",
+        "page": 19,
+        "width": 2115,
+        "height": 1817,
+        "aspect": 1.164,
+        "areaRatio": 0.44134,
         "source": "pdf-object",
-        "score": 2.64107
+        "score": 4.09805
       },
       {
-        "src": "website_assets/images/crops/reuse/page-21-crop-05.jpg",
+        "src": "website_assets/images/crops/reuse/page-21-crop-02.jpg",
         "page": 21,
-        "width": 2059,
-        "height": 699,
-        "aspect": 2.9456,
-        "areaRatio": 0.15866,
+        "width": 685,
+        "height": 435,
+        "aspect": 1.5747,
+        "areaRatio": 0.02923,
         "source": "pdf-object",
-        "score": 2.16144
+        "score": 0.62404
       },
       {
-        "src": "website_assets/images/crops/reuse/page-23-crop-01.jpg",
+        "src": "website_assets/images/crops/reuse/page-23-crop-02.jpg",
         "page": 23,
-        "width": 2012,
-        "height": 991,
-        "aspect": 2.0303,
-        "areaRatio": 0.23199,
+        "width": 446,
+        "height": 531,
+        "aspect": 0.8399,
+        "areaRatio": 0.02923,
         "source": "pdf-object",
-        "score": 2.84197
+        "score": 0.45329
       },
       {
-        "src": "website_assets/images/crops/reuse/page-26-crop-02.jpg",
+        "src": "website_assets/images/crops/reuse/page-26-crop-01.jpg",
         "page": 26,
-        "width": 1477,
-        "height": 1307,
-        "aspect": 1.1301,
-        "areaRatio": 0.22885,
+        "width": 764,
+        "height": 664,
+        "aspect": 1.1506,
+        "areaRatio": 0.11681,
         "source": "pdf-object",
-        "score": 2.8231
+        "score": 1.28905
       },
       {
         "src": "website_assets/images/crops/reuse/page-34-crop-01.jpg",
@@ -331,7 +331,7 @@ window.portfolioCropManifest = {
         "score": 4.78204
       }
     ],
-    "totalCrops": 56,
+    "totalCrops": 53,
     "pages": [
       4,
       5,
