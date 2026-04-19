@@ -1,40 +1,45 @@
 # Portfolio Image Selection
 
-This file records the recommended screenshot pages for the website layout in `portfolio_wix_layout.html`.
+This website version rebuilds the portfolio as a sequence of A3 landscape boards in `portfolio_wix_layout.html`.
+Assets are regenerated with `scripts/export_portfolio_pages.py` and now include both full-page exports and isolated single-image crops.
 
-## Selected pages
+## Export workflow
 
-- `Rong Chen-L4-Portfolio2023-2024.pdf`: pages `14`, `19`, `24`, `37`, `51`
-- `RongChen_k2336224_Logbook_IR5101：Radical Reuse.pdf`: pages `4`, `17`, `23`, `39`, `48`
-- `RongChen_K2336224_Passion for Fashion_Portfolio.pdf`: pages `3`, `8`, `11`, `21`, `23`
-- `RongChen_K2336224_Student Bar_portfolio.pdf`: pages `1`, `10`, `17`, `21`, `27`
+- Run `python scripts/export_portfolio_pages.py`
+- Full-page output: `website_assets/images/pages`
+- Crop output: `website_assets/images/crops`
+- Web manifest: `website_assets/data/portfolio_crops.js`
+- Render scale: `160 dpi` for full pages, `220 dpi` for fallback crop segmentation
 
-## Exported image files
+## Selected pages by project
 
-- `website_assets/images/l4-p14.png`
-- `website_assets/images/l4-p19.png`
-- `website_assets/images/l4-p24.png`
-- `website_assets/images/l4-p37.png`
-- `website_assets/images/l4-p51.png`
-- `website_assets/images/reuse-p4.png`
-- `website_assets/images/reuse-p17.png`
-- `website_assets/images/reuse-p23.png`
-- `website_assets/images/reuse-p39.png`
-- `website_assets/images/reuse-p48.png`
-- `website_assets/images/fashion-p3.png`
-- `website_assets/images/fashion-p8.png`
-- `website_assets/images/fashion-p11.png`
-- `website_assets/images/fashion-p21.png`
-- `website_assets/images/fashion-p23.png`
-- `website_assets/images/bar-p1.png`
-- `website_assets/images/bar-p10.png`
-- `website_assets/images/bar-p17.png`
-- `website_assets/images/bar-p21.png`
-- `website_assets/images/bar-p27.png`
+### Level 4 Portfolio
 
-## Wix use suggestion
+- PDF: `Rong Chen-L4-Portfolio2023-2024.pdf`
+- Exported pages: `3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 43, 46, 49, 51`
+- Output folder: `website_assets/images/pages/l4`
 
-- Use one project cover image as the section banner.
-- Place the remaining four images underneath in a two-column gallery.
-- Keep text short: project title, one-line concept, one short paragraph, then images.
-- If one page feels too text-heavy in Wix, replace it with another image from the same PDF rather than shrinking it too much.
+### Radical Reuse
+
+- PDF: `RongChen_k2336224_Logbook_IR5101：Radical Reuse.pdf`
+- Exported pages: `4, 5, 7, 8, 9, 10, 15, 17, 19, 21, 23, 24, 26, 28, 30, 34, 39, 42, 48, 50`
+- Output folder: `website_assets/images/pages/reuse`
+
+### Passion for Fashion
+
+- PDF: `RongChen_K2336224_Passion for Fashion_Portfolio.pdf`
+- Exported pages: `1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 23, 26`
+- Output folder: `website_assets/images/pages/fashion`
+
+### Student Bar
+
+- PDF: `RongChen_K2336224_Student Bar_portfolio.pdf`
+- Exported pages: `1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 17, 19, 21, 23, 25, 27`
+- Output folder: `website_assets/images/pages/bar`
+
+## Layout intent
+
+- Portfolio section uses A3 landscape board proportions throughout.
+- Every board includes a short brief, phase label and source page reference.
+- Text is fixed in a stable side panel; the remaining board area is reserved for image composition.
+- Website boards are assembled from isolated image crops so incomplete full-page screenshots are not used as final board content.

@@ -3,18 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rong Chen Portfolio Layout</title>
+  <title>Rong Chen Portfolio</title>
   <style>
     :root {
-      --bg: #f3efe8;
-      --panel: #fbf8f3;
-      --ink: #181614;
-      --muted: #645c55;
-      --line: #d8cdc0;
-      --accent: #a95b3f;
-      --accent-soft: #dbc2b4;
-      --shadow: 0 18px 60px rgba(32, 20, 10, 0.08);
-      --max: 1280px;
+      --paper: #f6f1e8;
+      --paper-strong: #fbf8f2;
+      --ink: #171411;
+      --muted: #6f665d;
+      --line: rgba(34, 28, 23, 0.14);
+      --accent: #8c5e3c;
+      --accent-soft: #d7c0ad;
+      --shadow: 0 20px 70px rgba(31, 21, 12, 0.08);
+      --sheet-shadow: 0 28px 90px rgba(20, 14, 8, 0.12);
+      --radius: 30px;
+      --max-width: 1760px;
+      --a3-ratio: 420 / 297;
+      --sans: "Aptos", "Segoe UI", "Helvetica Neue", sans-serif;
+      --serif: "Palatino Linotype", "Book Antiqua", "Times New Roman", serif;
     }
 
     * {
@@ -27,12 +32,13 @@
 
     body {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
       color: var(--ink);
+      font-family: var(--sans);
       background:
-        radial-gradient(circle at top left, rgba(169, 91, 63, 0.12), transparent 22rem),
-        linear-gradient(180deg, #f7f3ed 0%, #f3efe8 100%);
-      line-height: 1.6;
+        radial-gradient(circle at top left, rgba(140, 94, 60, 0.12), transparent 26rem),
+        radial-gradient(circle at bottom right, rgba(187, 159, 132, 0.12), transparent 28rem),
+        linear-gradient(180deg, #faf6ef 0%, var(--paper) 100%);
+      line-height: 1.55;
     }
 
     img {
@@ -46,459 +52,658 @@
     }
 
     .site-shell {
-      width: min(calc(100% - 40px), var(--max));
+      width: min(calc(100% - 36px), 1840px);
       margin: 0 auto;
+      padding-bottom: 64px;
     }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      padding: 26px 0 18px;
-      font-size: 13px;
+      gap: 18px;
+      padding: 22px 0 12px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(180deg, rgba(250, 246, 239, 0.92) 0%, rgba(250, 246, 239, 0.74) 100%);
+      border-bottom: 1px solid rgba(23, 20, 17, 0.08);
+    }
+
+    .brand-lockup {
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand-lockup strong {
+      font-size: 15px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .brand-lockup span {
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .topbar nav {
       display: flex;
-      gap: 18px;
+      gap: 10px;
       flex-wrap: wrap;
-      color: var(--muted);
+      justify-content: flex-end;
     }
 
-    .cover-page {
-      display: grid;
-      grid-template-columns: 320px minmax(0, 1fr);
-      gap: 30px;
-      align-items: start;
-      width: min(100%, 980px);
-      min-height: 1380px;
-      margin: 18px auto 48px;
-      padding: 22px;
-    }
-
-    .cover-sidebar,
-    .cover-main {
-      background: rgba(251, 248, 243, 0.82);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(216, 205, 192, 0.9);
-      box-shadow: var(--shadow);
-    }
-
-    .cover-sidebar {
-      padding: 34px 28px;
-    }
-
-    .cover-main {
-      padding: 34px;
-    }
-
-    .cover-name {
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 18px;
-    }
-
-    .cover-role {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-
-    .sidebar-group {
-      margin-bottom: 26px;
-    }
-
-    .sidebar-group h3 {
-      font-size: 15px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .contact-list,
-    .skill-list,
-    .software-list {
-      display: grid;
-      gap: 10px;
-      font-size: 15px;
-    }
-
-    .contact-row {
-      display: grid;
-      grid-template-columns: 72px 1fr;
-      gap: 10px;
-      align-items: start;
-    }
-
-    .contact-row span:first-child {
-      color: var(--muted);
-      text-transform: uppercase;
+    .topbar nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(23, 20, 17, 0.1);
+      background: rgba(255, 255, 255, 0.55);
       font-size: 12px;
       letter-spacing: 0.12em;
-      padding-top: 3px;
-    }
-
-    .skill-list div,
-    .software-list div {
-      color: var(--muted);
-    }
-
-    .cover-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 24px;
-    }
-
-    .cover-gallery figure {
-      margin: 0;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 10px;
-    }
-
-    .cover-gallery img {
-      width: 100%;
-      aspect-ratio: 0.62 / 1;
-      object-fit: cover;
-      background: #efe8dd;
-    }
-
-    .cover-intro {
-      margin-bottom: 30px;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .cv-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px 34px;
-    }
-
-    .cv-block h3 {
-      font-size: 15px;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
-    .cv-item {
+    .topbar nav a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(23, 20, 17, 0.24);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-sheet,
+    .project-header,
+    .folio-sheet {
+      width: min(100%, var(--max-width));
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(251, 247, 240, 0.96) 100%);
+      border: 1px solid rgba(23, 20, 17, 0.08);
+      box-shadow: var(--sheet-shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-sheet {
+      aspect-ratio: var(--a3-ratio);
+      padding: clamp(26px, 3vw, 40px);
+      margin-top: 22px;
       display: grid;
-      grid-template-columns: 72px 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
+      grid-template-columns: 1.05fr 1.4fr;
+      gap: 24px;
+      align-items: stretch;
     }
 
-    .cv-year {
-      color: var(--muted);
-      font-size: 14px;
-      padding-top: 2px;
+    .hero-sheet::before,
+    .folio-sheet::before,
+    .project-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.018) 1px, transparent 1px);
+      background-size: 100% 44px, 44px 100%;
+      opacity: 0.2;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.22), transparent 78%);
     }
 
-    .cv-item strong {
-      display: block;
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 4px;
+    .hero-copy,
+    .hero-visual,
+    .header-copy,
+    .sheet-note,
+    .sheet-media,
+    .sheet-footer {
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 46px;
+      height: 1px;
+      background: rgba(23, 20, 17, 0.22);
     }
 
     h1,
     h2,
     h3,
+    h4,
     p {
       margin: 0;
     }
 
+    h1,
+    .project-title,
+    .sheet-head h3,
+    .brief-card h4 {
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
     h1 {
-      font-size: clamp(42px, 7vw, 92px);
-      line-height: 0.95;
-      font-weight: 500;
-      max-width: 8ch;
+      font-size: clamp(44px, 5.8vw, 94px);
+      line-height: 0.92;
+      max-width: 7ch;
+      margin-bottom: 22px;
     }
 
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 20px;
-      padding: 12px 0 22px;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 28px;
+    .hero-copy {
+      display: grid;
+      grid-template-rows: auto auto auto 1fr;
+      min-height: 0;
     }
 
-    .section-title h2 {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 500;
+    .hero-copy p.lead {
+      font-size: clamp(16px, 1.45vw, 24px);
+      max-width: 27ch;
+      color: rgba(23, 20, 17, 0.84);
+      margin-bottom: 26px;
     }
 
-    .section-title p {
-      max-width: 56ch;
-      color: var(--muted);
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
     }
 
-    .projects {
-      padding: 24px 0 20px;
+    .hero-meta div {
+      padding: 16px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(23, 20, 17, 0.08);
+      background: rgba(255, 255, 255, 0.56);
+      min-height: 112px;
     }
 
-    .projects .section-title {
-      width: min(100%, 1480px);
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pdf-page,
-    .profile-page {
-      width: min(100%, 1480px);
-      margin-bottom: 44px;
-      margin-left: auto;
-      margin-right: auto;
-      background: rgba(251, 248, 243, 0.9);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      min-height: 980px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .page-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 24px;
-      margin-bottom: 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .project-index {
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .pdf-page h3,
-    .profile-page h3 {
-      font-size: 28px;
-      line-height: 1.05;
-      font-weight: 500;
-      margin: 0;
-    }
-
-    .tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 0;
-    }
-
-    .tags span {
-      border: 1px solid var(--line);
-      padding: 6px 10px;
+    .hero-meta strong,
+    .header-grid strong {
+      display: block;
       font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: #f7f2eb;
-    }
-
-    .pdf-thumb {
-      margin-top: 20px;
-      border: 1px solid var(--line);
-      background: white;
-      padding: 14px;
-    }
-
-    .pdf-thumb img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      background: #f3eee7;
-    }
-
-    .profile-layout {
-      display: grid;
-      grid-template-columns: 260px minmax(0, 1fr);
-      gap: 34px;
-    }
-
-    .profile-intro {
-      color: var(--muted);
-      margin: 0 0 18px;
-    }
-
-    .profile-side,
-    .profile-body {
-      border-top: 1px solid var(--line);
-      padding-top: 20px;
-    }
-
-    .profile-side h4,
-    .profile-body h4 {
-      margin: 0 0 12px;
-      font-size: 15px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
-      font-weight: 500;
+      margin-bottom: 10px;
     }
 
-    .profile-list,
-    .profile-text {
-      display: grid;
-      gap: 10px;
-      color: var(--muted);
+    .hero-meta span {
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .hero-note {
+      align-self: end;
+      padding: 18px 20px;
+      border-left: 3px solid rgba(140, 94, 60, 0.6);
+      background: rgba(255, 255, 255, 0.55);
       font-size: 15px;
+      color: var(--muted);
+      max-width: 56ch;
     }
 
-    .profile-text p {
-      margin: 0 0 14px;
-    }
-
-    .gallery {
+    .hero-visual {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      flex: 1;
-      align-content: start;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 20px;
+      min-height: 0;
     }
 
-    .gallery figure {
-      margin: 0;
-      background: white;
-      border: 1px solid var(--line);
-      padding: 10px;
+    .hero-image-frame {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(23, 20, 17, 0.08);
+      background: linear-gradient(180deg, #f1ebe3 0%, #faf7f2 100%);
+      min-height: 0;
+      box-shadow: var(--shadow);
     }
 
-    .gallery figure:first-child {
-      grid-column: 1 / -1;
-    }
-
-    .gallery img {
+    .hero-image-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      background: #efe8dd;
+      object-position: center;
     }
 
-    .gallery figcaption {
-      font-size: 13px;
+    .brief-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .brief-card {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(23, 20, 17, 0.08);
+      background: rgba(255, 255, 255, 0.64);
+      min-height: 122px;
+    }
+
+    .brief-card h4 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .brief-card p {
       color: var(--muted);
-      padding-top: 8px;
+      font-size: 14px;
     }
 
-    .notes {
-      padding: 32px 0 80px;
+    .projects-nav {
+      width: min(100%, var(--max-width));
+      margin: 22px auto 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .notes-grid {
+    .projects-nav a {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(23, 20, 17, 0.1);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+      box-shadow: 0 10px 24px rgba(23, 20, 17, 0.05);
+    }
+
+    .projects-nav a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(23, 20, 17, 0.1);
+      color: var(--ink);
+    }
+
+    .project-block {
+      margin-top: 30px;
+    }
+
+    .project-header {
+      aspect-ratio: var(--a3-ratio);
+      padding: clamp(26px, 3vw, 42px);
+      display: grid;
+      grid-template-columns: 0.95fr 1.45fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
+    .header-copy {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .project-kicker {
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .project-title {
+      font-size: clamp(30px, 3.4vw, 58px);
+      line-height: 0.96;
+      max-width: 10ch;
+    }
+
+    .project-summary {
+      color: var(--muted);
+      font-size: clamp(15px, 1.28vw, 21px);
+      max-width: 36ch;
+    }
+
+    .header-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      gap: 14px;
     }
 
-    .note-card {
-      padding: 24px;
-      background: rgba(251, 248, 243, 0.88);
-      border: 1px solid var(--line);
+    .header-grid div {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid rgba(23, 20, 17, 0.08);
+      min-height: 110px;
+    }
+
+    .header-grid p {
+      color: rgba(23, 20, 17, 0.86);
+      font-size: 15px;
+    }
+
+    .project-hero-media {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 16px;
+      min-height: 0;
+    }
+
+    .project-hero-media .hero-image-frame {
+      min-height: 0;
+    }
+
+    .phase-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .phase-strip span {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(23, 20, 17, 0.08);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .project-sheets {
+      display: grid;
+      gap: 18px;
+    }
+
+    .sheet-empty {
+      padding: 28px 32px;
+      border-radius: 24px;
+      border: 1px dashed rgba(23, 20, 17, 0.16);
+      background: rgba(255, 255, 255, 0.54);
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
       box-shadow: var(--shadow);
     }
 
-    .note-card h3 {
-      font-size: 18px;
-      margin-bottom: 12px;
+    .folio-sheet {
+      aspect-ratio: var(--a3-ratio);
+      padding: 24px 24px 22px;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
     }
 
-    .note-card ul {
-      margin: 0;
-      padding-left: 18px;
+    .sheet-head {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr auto;
+      gap: 16px;
+      align-items: end;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(23, 20, 17, 0.12);
+      margin-bottom: 18px;
+    }
+
+    .sheet-head h3 {
+      font-size: clamp(24px, 2.2vw, 38px);
+      line-height: 0.96;
+    }
+
+    .sheet-subtitle {
       color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .sheet-count {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .sheet-body {
+      display: grid;
+      min-height: 0;
+      gap: 18px;
+    }
+
+    .sheet-note {
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(23, 20, 17, 0.08);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .sheet-note strong {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .sheet-note p {
+      font-size: clamp(16px, 1.2vw, 20px);
+      line-height: 1.5;
+    }
+
+    .sheet-meta {
+      display: grid;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sheet-media {
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+    }
+
+    .sheet-media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1.16fr) minmax(0, 0.84fr);
+      gap: 14px;
+      min-height: 0;
+      height: 100%;
+    }
+
+    .media-frame {
+      min-height: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(23, 20, 17, 0.08);
+      background:
+        linear-gradient(180deg, rgba(248, 242, 235, 0.88), rgba(252, 249, 244, 0.95));
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+
+    .sheet-media-grid .media-frame:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      background: #f8f4ed;
+    }
+
+    .sheet-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(23, 20, 17, 0.08);
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .sheet-footer span:last-child {
+      text-align: right;
+    }
+
+    .layout-fixed .sheet-body {
+      grid-template-columns: minmax(0, 1.52fr) 0.72fr;
+      align-items: stretch;
+    }
+
+    .layout-fixed .sheet-media {
+      order: 1;
+    }
+
+    .layout-fixed .sheet-note {
+      order: 2;
+      min-width: 0;
+      max-width: 100%;
+      align-self: stretch;
+      align-content: start;
+    }
+
+    .section-endnote {
+      width: min(100%, var(--max-width));
+      margin: 22px auto 0;
+      padding: 20px 24px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid rgba(23, 20, 17, 0.08);
+      color: var(--muted);
+      box-shadow: var(--shadow);
+    }
+
+    .section-endnote strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
     .footer {
-      padding: 20px 0 42px;
-      border-top: 1px solid var(--line);
-      font-size: 13px;
+      width: min(100%, var(--max-width));
+      margin: 34px auto 0;
+      padding: 18px 0 0;
+      border-top: 1px solid rgba(23, 20, 17, 0.1);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
       color: var(--muted);
-      text-transform: uppercase;
+      font-size: 12px;
       letter-spacing: 0.12em;
+      text-transform: uppercase;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 980px) {
-      .cover-page,
-      .page-head,
-      .profile-layout,
-      .notes-grid {
-        grid-template-columns: 1fr;
-      }
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: rise 700ms ease forwards;
+    }
 
-      .page-head {
-        flex-direction: column;
-        align-items: start;
-      }
+    .reveal:nth-child(2n) {
+      animation-delay: 80ms;
+    }
 
-      .cover-page,
-      .pdf-page,
-      .profile-page {
-        width: 100%;
-        min-height: auto;
-      }
+    .reveal:nth-child(3n) {
+      animation-delay: 140ms;
+    }
 
-      .cover-gallery,
-      .cv-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title {
-        align-items: start;
-        flex-direction: column;
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 1180px) {
+      .hero-sheet,
+      .project-header {
+        grid-template-columns: 1fr;
+        aspect-ratio: auto;
+      }
+
+      .folio-sheet {
+        aspect-ratio: auto;
+      }
+
+      .layout-fixed .sheet-body {
+        grid-template-columns: 1fr;
+      }
+
+      .layout-fixed .sheet-note,
+      .layout-fixed .sheet-media {
+        order: initial;
+      }
+    }
+
+    @media (max-width: 860px) {
       .site-shell {
-        width: min(calc(100% - 24px), var(--max));
+        width: min(calc(100% - 20px), 1840px);
       }
 
       .topbar {
-        padding-top: 18px;
-        gap: 12px;
+        padding-top: 16px;
       }
 
-      .hero-copy,
-      .cover-sidebar,
-      .cover-main,
-      .pdf-page,
-      .profile-page,
-      .note-card {
-        padding: 18px;
+      .topbar,
+      .sheet-head,
+      .sheet-footer {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .cover-gallery,
-      .cv-grid,
-      .gallery {
+      .hero-meta,
+      .brief-grid,
+      .header-grid {
         grid-template-columns: 1fr;
       }
 
-      .gallery figure:first-child {
-        grid-column: auto;
+      .hero-sheet,
+      .project-header,
+      .folio-sheet {
+        border-radius: 22px;
+      }
+
+      .hero-sheet,
+      .project-header {
+        padding: 18px;
+      }
+
+      .folio-sheet {
+        padding: 16px;
+      }
+
+      .sheet-count,
+      .sheet-footer span:last-child {
+        text-align: left;
       }
     }
   </style>
@@ -506,335 +711,327 @@
 <body>
   <div class="site-shell">
     <header class="topbar">
-      <div>Rong Chen</div>
+      <div class="brand-lockup">
+        <strong>Rong Chen Portfolio</strong>
+        <span>A3 landscape portfolio web layout</span>
+      </div>
       <nav>
-        <a href="#projects">Projects</a>
+        <a href="#overview">Overview</a>
+        <a href="#project-l4">Level 4</a>
+        <a href="#project-reuse">Radical Reuse</a>
+        <a href="#project-fashion">Passion for Fashion</a>
+        <a href="#project-bar">Student Bar</a>
       </nav>
     </header>
 
-    <section class="cover-page">
-      <aside class="cover-sidebar">
-        <div class="cover-name">Rong Chen</div>
-        <div class="cover-role">Interior Design Portfolio</div>
-
-        <div class="sidebar-group">
-          <h3>Contact</h3>
-          <div class="contact-list">
-            <div class="contact-row"><span>Phone</span><span>[Add your phone number]</span></div>
-            <div class="contact-row"><span>Email</span><span>[Add your email]</span></div>
-            <div class="contact-row"><span>Instagram</span><span>[Add your Instagram]</span></div>
-            <div class="contact-row"><span>LinkedIn</span><span>[Add your LinkedIn]</span></div>
-            <div class="contact-row"><span>Website</span><span>[Paste your Wix URL here]</span></div>
-          </div>
-        </div>
-
-        <div class="sidebar-group">
-          <h3>Skills</h3>
-          <div class="skill-list">
-            <div>Spatial storytelling</div>
-            <div>Concept development</div>
-            <div>Site analysis</div>
-            <div>Model making</div>
-            <div>Visual communication</div>
-            <div>Orthographic drawing</div>
-            <div>Material research</div>
-            <div>Exhibition narrative</div>
-          </div>
-        </div>
-
-        <div class="sidebar-group">
-          <h3>Software</h3>
-          <div class="software-list">
-            <div>AutoCAD</div>
-            <div>SketchUp / Rhino</div>
-            <div>Adobe InDesign</div>
-            <div>Adobe Photoshop</div>
-            <div>Illustrator</div>
-            <div>Rendering tools</div>
-          </div>
-        </div>
-      </aside>
-
-      <section class="cover-main">
-        <div class="cover-gallery">
-          <figure>
-            <img src="website_assets/images/fashion-p21.png" alt="Portfolio cover image 1">
-          </figure>
-          <figure>
-            <img src="website_assets/images/reuse-p48.png" alt="Portfolio cover image 2">
-          </figure>
-          <figure>
-            <img src="website_assets/images/bar-p21.png" alt="Portfolio cover image 3">
-          </figure>
-        </div>
-
-        <p class="cover-intro">
-          I am an interior design student whose work explores adaptive reuse, spatial narrative,
-          exhibition atmosphere and socially engaging interiors. My projects focus on how
-          materials, culture and human experience can shape spaces that feel immersive,
-          purposeful and memorable.
+    <section class="hero-sheet reveal" id="overview">
+      <div class="hero-copy">
+        <div class="eyebrow">Portfolio Reset</div>
+        <h1>A3 boards rebuilt for web reading.</h1>
+        <p class="lead">
+          This version treats the portfolio section as a sequence of landscape presentation boards:
+          larger spreads, newly exported screenshots, and a short brief on every page so the work reads
+          more like a curated review document than a standard website gallery.
         </p>
-
-        <div class="cv-grid">
-          <div class="cv-block">
-            <h3>Project Focus</h3>
-            <div class="cv-item">
-              <div class="cv-year">2025</div>
-              <div>
-                <strong>Passion for Fashion</strong>
-                Exhibition design exploring denim culture, identity and the relationship between time and space.
-              </div>
-            </div>
-            <div class="cv-item">
-              <div class="cv-year">2025</div>
-              <div>
-                <strong>Student Bar</strong>
-                A social interior proposal designed to support student interaction, leisure and spatial flexibility.
-              </div>
-            </div>
-            <div class="cv-item">
-              <div class="cv-year">2024</div>
-              <div>
-                <strong>Radical Reuse</strong>
-                An adaptive reuse proposal developed through contextual research, program strategy and spatial intervention.
-              </div>
-            </div>
+        <div class="hero-meta">
+          <div>
+            <strong>Format</strong>
+            <span>Every portfolio board follows an A3 landscape proportion with generous margins and clearer hierarchy.</span>
           </div>
-
-          <div class="cv-block">
-            <h3>Profile</h3>
-            <div class="cv-item">
-              <div class="cv-year">Interest</div>
-              <div>
-                <strong>Interior and Exhibition Design</strong>
-                Interested in narrative environments, visual atmosphere, material contrast and public engagement.
-              </div>
-            </div>
-            <div class="cv-item">
-              <div class="cv-year">Approach</div>
-              <div>
-                <strong>Research to Resolution</strong>
-                I develop projects from site analysis and concept building through to drawings, models and final visuals.
-              </div>
-            </div>
-            <div class="cv-item">
-              <div class="cv-year">Goal</div>
-              <div>
-                <strong>Professional Portfolio</strong>
-                This website curates selected academic work into a concise online profile for tutors, studios and future opportunities.
-              </div>
-            </div>
+          <div>
+            <strong>Image Count</strong>
+            <span>Each project now uses 20 refreshed screenshots instead of the previous short-list gallery approach.</span>
+          </div>
+          <div>
+            <strong>Reading Logic</strong>
+            <span>Every page carries a phase label, a concise brief, and the source PDF page for fast review.</span>
           </div>
         </div>
-      </section>
-    </section>
-
-    <section class="projects" id="projects">
-      <div class="section-title">
-        <h2>Selected Works</h2>
-        <p>
-          Each project returns to the original image-led layout, using selected pages rather
-          than full contact sheets. The header is kept compact so the images can occupy more
-          of the page.
-        </p>
+        <div class="hero-note">
+          The visual language is based on your uploaded example: light paper background, strong white space,
+          calm typography, architectural pacing, and an emphasis on letting one board read at a time.
+        </div>
       </div>
 
-      <article class="pdf-page">
-        <div class="page-head">
-          <div>
-            <div class="project-index">01 / Level 4 Portfolio</div>
-            <h3>Materials, installation and spatial atmosphere</h3>
-          </div>
-          <div class="tags">
-            <span>Process</span>
-            <span>Materiality</span>
-            <span>Construction</span>
-            <span>Final Render</span>
-          </div>
+      <div class="hero-visual">
+        <div class="hero-image-frame">
+          <img src="website_assets/images/pages/l4/page-03.png" alt="Portfolio preview board">
         </div>
-        <div class="gallery">
-          <figure>
-            <img src="website_assets/images/l4-p51.png" alt="Level 4 portfolio page 51">
-            <figcaption>Lead image for website section header.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/l4-p14.png" alt="Level 4 portfolio page 14">
-            <figcaption>Model and display development.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/l4-p19.png" alt="Level 4 portfolio page 19">
-            <figcaption>Material and facade expression.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/l4-p24.png" alt="Level 4 portfolio page 24">
-            <figcaption>Resolved installation overview.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/l4-p37.png" alt="Level 4 portfolio page 37">
-            <figcaption>Spatial concept and interior mood.</figcaption>
-          </figure>
+        <div class="brief-grid">
+          <article class="brief-card">
+            <h4>Re-exported pages</h4>
+            <p>All project visuals are now rebuilt from isolated crop assets under `website_assets/images/crops`.</p>
+          </article>
+          <article class="brief-card">
+            <h4>Board-by-board rhythm</h4>
+            <p>Each board fixes the text block in one stable position and uses the remaining area only for images.</p>
+          </article>
+          <article class="brief-card">
+            <h4>Better review flow</h4>
+            <p>Project intros summarise concept, medium and narrative arc before the reader moves into the 20-page sequence.</p>
+          </article>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="pdf-page">
-        <div class="page-head">
-          <div>
-            <div class="project-index">02 / Radical Reuse</div>
-            <h3>Urban context, adaptive reuse and proposal development</h3>
-          </div>
-          <div class="tags">
-            <span>Context</span>
-            <span>Adaptive Reuse</span>
-            <span>Narrative</span>
-          </div>
-        </div>
-        <div class="gallery">
-          <figure>
-            <img src="website_assets/images/reuse-p39.png" alt="Radical Reuse page 39">
-            <figcaption>Exploded design or proposal view as lead image.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/reuse-p4.png" alt="Radical Reuse page 4">
-            <figcaption>Opportunity map and site positioning.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/reuse-p17.png" alt="Radical Reuse page 17">
-            <figcaption>Elevation and facade relationship.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/reuse-p23.png" alt="Radical Reuse page 23">
-            <figcaption>Design proposal and section logic.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/reuse-p48.png" alt="Radical Reuse page 48">
-            <figcaption>Final atmosphere and interior view.</figcaption>
-          </figure>
-        </div>
-      </article>
+    <div class="projects-nav" id="projects-nav"></div>
+    <main id="projects-root"></main>
 
-      <article class="pdf-page">
-        <div class="page-head">
-          <div>
-            <div class="project-index">03 / Passion for Fashion</div>
-            <h3>Exhibition storytelling through denim culture and space</h3>
-          </div>
-          <div class="tags">
-            <span>Exhibition</span>
-            <span>Narrative Space</span>
-            <span>Culture</span>
-          </div>
-        </div>
-        <div class="gallery">
-          <figure>
-            <img src="website_assets/images/fashion-p21.png" alt="Passion for Fashion page 21">
-            <figcaption>Main immersive visual for the project header.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/fashion-p3.png" alt="Passion for Fashion page 3">
-            <figcaption>Concept and exhibition narrative setup.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/fashion-p8.png" alt="Passion for Fashion page 8">
-            <figcaption>Site research and project location.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/fashion-p11.png" alt="Passion for Fashion page 11">
-            <figcaption>Spatial identity and visual world-building.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/fashion-p23.png" alt="Passion for Fashion page 23">
-            <figcaption>Final visitor experience and interaction.</figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <article class="pdf-page">
-        <div class="page-head">
-          <div>
-            <div class="project-index">04 / Student Bar</div>
-            <h3>Social space, program strategy and student-focused interaction</h3>
-          </div>
-          <div class="tags">
-            <span>Hospitality</span>
-            <span>Social Space</span>
-            <span>Spatial Planning</span>
-          </div>
-        </div>
-        <div class="gallery">
-          <figure>
-            <img src="website_assets/images/bar-p21.png" alt="Student Bar page 21">
-            <figcaption>Lead image showing the strongest final visual set.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/bar-p1.png" alt="Student Bar page 1">
-            <figcaption>Title and opening identity.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/bar-p10.png" alt="Student Bar page 10">
-            <figcaption>Overall design development and perspective.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/bar-p17.png" alt="Student Bar page 17">
-            <figcaption>Spatial strategy and zoning.</figcaption>
-          </figure>
-          <figure>
-            <img src="website_assets/images/bar-p27.png" alt="Student Bar page 27">
-            <figcaption>Project conclusion and final summary layout.</figcaption>
-          </figure>
-        </div>
-      </article>
-
-      <article class="profile-page">
-        <div class="page-head">
-          <div>
-            <div class="project-index">05 / Proof of Online Profile</div>
-            <h3>LinkedIn and Professional Profile</h3>
-          </div>
-          <div class="tags">
-            <span>LinkedIn</span>
-            <span>Website</span>
-            <span>Profile</span>
-          </div>
-        </div>
-        <p class="profile-intro">
-          This page is reserved for your online profile field. It can describe how your
-          LinkedIn, website and public-facing portfolio work together as a coherent
-          professional identity. Images are intentionally not placed here yet.
-        </p>
-        <div class="profile-layout">
-          <div class="profile-side">
-            <h4>Section Notes</h4>
-            <div class="profile-list">
-              <div>Profile name and professional title</div>
-              <div>Short summary / about section</div>
-              <div>Education and selected experience</div>
-              <div>Skills and software keywords</div>
-              <div>Website and social links</div>
-            </div>
-          </div>
-          <div class="profile-body">
-            <h4>Content Placeholder</h4>
-            <div class="profile-text">
-              <p>
-                This area can later hold a written explanation of your online presence,
-                such as how the LinkedIn page supports the website, what materials are
-                uploaded there, and how your digital profile presents your work to tutors,
-                studios and future collaborators.
-              </p>
-              <p>
-                If you want, this page can also be reformatted later to match the screenshot
-                style you showed, with a title like "Proof of LinkedIn" and a more document-like
-                composition. For now it remains image-free as requested.
-              </p>
-            </div>
-          </div>
-        </div>
-      </article>
+    <section class="section-endnote reveal">
+      <strong>Layout Note</strong>
+      The portfolio pages below are intentionally presented as a long sequence of A3 landscape boards.
+      On desktop they read like review sheets; on smaller screens they stack vertically while keeping the same
+      content hierarchy and per-page briefs.
     </section>
 
     <footer class="footer">
-      Portfolio structure draft.
+      <span>Rong Chen portfolio layout study</span>
+      <span>Generated from refreshed project screenshots and A3 landscape board templates</span>
     </footer>
   </div>
+
+  <script src="website_assets/data/portfolio_crops.js"></script>
+  <script>
+    const layouts = ["fixed"];
+
+    const slotNotes = [
+      "Introduces this part of the project with the main visual cue and overall design direction.",
+      "Builds the argument through precedent, testing, or a more specific layer of spatial thinking.",
+      "Pushes the proposal into clearer resolution through drawings, arrangement, and decision making.",
+      "Closes the sequence with atmosphere, communication quality, or a more resolved project moment."
+    ];
+
+    const projects = [
+      {
+        slug: "l4",
+        anchor: "project-l4",
+        index: "01",
+        nav: "Level 4",
+        title: "Level 4 Portfolio",
+        subtitle: "Material stories, installation strategy and interior atmosphere",
+        summary: "A wider portfolio chapter that moves from architectural sections and spatial studies to material assemblies, making processes and final atmosphere boards.",
+        year: "2024",
+        tools: "Sketching, drawing, model studies, renders",
+        focus: "Material research, spatial atmosphere, installation logic",
+        boardImage: "website_assets/images/pages/l4/page-51.png",
+        pages: [3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 43, 46, 49, 51],
+        phases: [
+          { name: "Foundations", caption: "Opens with key diagrams, sections and the first spatial proposition." },
+          { name: "Assembly", caption: "Develops the structural and material language through detail studies and sectional thinking." },
+          { name: "Program", caption: "Clarifies how activity, circulation and spatial hierarchy are organised across the project." },
+          { name: "Material Stories", caption: "Connects palette, embodied meaning and environmental reasoning to the larger concept." },
+          { name: "Atmosphere", caption: "Brings the chapter toward final views, crafted communication and a more complete experience." }
+        ]
+      },
+      {
+        slug: "reuse",
+        anchor: "project-reuse",
+        index: "02",
+        nav: "Radical Reuse",
+        title: "Radical Reuse",
+        subtitle: "Site reading, adaptive strategy and proposal development",
+        summary: "An adaptive reuse proposal structured around context, existing fabric, intervention logic and a sequence of increasingly resolved architectural moves.",
+        year: "2024",
+        tools: "Context analysis, adaptive reuse, orthographic communication",
+        focus: "Urban reading, programme strategy, reuse narrative",
+        boardImage: "website_assets/images/pages/reuse/page-48.png",
+        pages: [4, 5, 7, 8, 9, 10, 15, 17, 19, 21, 23, 24, 26, 28, 30, 34, 39, 42, 48, 50],
+        phases: [
+          { name: "Context", caption: "Introduces the site and the larger questions that motivate adaptive reuse." },
+          { name: "Existing Fabric", caption: "Studies the inherited building condition, urban edges and latent opportunities for change." },
+          { name: "Intervention", caption: "Frames new insertion logic through plans, sections, programme and circulation." },
+          { name: "Proposal", caption: "Builds the reuse strategy into clearer architectural decisions and communication boards." },
+          { name: "Resolution", caption: "Concludes with finalised atmosphere, strengthened narrative and sharper proposal imagery." }
+        ]
+      },
+      {
+        slug: "fashion",
+        anchor: "project-fashion",
+        index: "03",
+        nav: "Fashion",
+        title: "Passion for Fashion",
+        subtitle: "Denim culture translated into exhibition narrative and spatial identity",
+        summary: "An exhibition-led project that develops from cultural reading and material language into concept sketches, visitor storytelling, installation strategy and final immersive visuals.",
+        year: "2025",
+        tools: "Narrative space, collage, concept boards, exhibition design",
+        focus: "Denim identity, visitor journey, cultural storytelling",
+        boardImage: "website_assets/images/pages/fashion/page-20.png",
+        pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 23, 26],
+        phases: [
+          { name: "Narrative", caption: "Starts with the cultural brief and the emotional tone of the exhibition world." },
+          { name: "Research", caption: "Builds a visual archive around denim, identity, users and spatial references." },
+          { name: "Concept", caption: "Transforms material cues into plans, display logic and exhibition choreography." },
+          { name: "Development", caption: "Sharpens how the installation reads through sequence, detail and visitor interaction." },
+          { name: "Final Experience", caption: "Ends with atmosphere boards and a more complete sense of exhibition immersion." }
+        ]
+      },
+      {
+        slug: "bar",
+        anchor: "project-bar",
+        index: "04",
+        nav: "Student Bar",
+        title: "Student Bar",
+        subtitle: "Hospitality concept, social planning and playful programme strategy",
+        summary: "A social interior project shaped through branding, precedent work, mini-golf integration, programme layout, experiential zoning and final hospitality visuals.",
+        year: "2025",
+        tools: "Hospitality planning, concept development, precedent studies, renders",
+        focus: "Social interaction, play, brand atmosphere, spatial strategy",
+        boardImage: "website_assets/images/pages/bar/page-21.png",
+        pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 17, 19, 21, 23, 25, 27],
+        phases: [
+          { name: "Brief", caption: "Frames the social ambition of the project and establishes the tone of the venue." },
+          { name: "References", caption: "Collects brand cues, mini-golf precedents and hospitality atmosphere studies." },
+          { name: "Planning", caption: "Tests layout, zoning and activity placement to support social use and movement." },
+          { name: "Resolution", caption: "Pushes the concept into developed boards, integrated programme and clearer spatial identity." },
+          { name: "Final Visuals", caption: "Concludes with rendered atmosphere and the strongest public-facing proposal pages." }
+        ]
+      }
+    ];
+
+    function pad(page) {
+      return String(page).padStart(2, "0");
+    }
+
+    function createProjectNav(project) {
+      return `<a href="#${project.anchor}">${project.index} / ${project.nav}</a>`;
+    }
+
+    function createHeader(project) {
+      const phaseTags = project.phases.map((phase) => `<span>${phase.name}</span>`).join("");
+      return `
+        <section class="project-block reveal" id="${project.anchor}">
+          <article class="project-header">
+            <div class="header-copy">
+              <div class="eyebrow">Project ${project.index}</div>
+              <div class="project-kicker">${project.year} / Portfolio chapter</div>
+              <h2 class="project-title">${project.title}</h2>
+              <p class="project-summary">${project.summary}</p>
+              <div class="header-grid">
+                <div>
+                  <strong>Focus</strong>
+                  <p>${project.focus}</p>
+                </div>
+                <div>
+                  <strong>Tools</strong>
+                  <p>${project.tools}</p>
+                </div>
+                <div>
+                  <strong>Subtitle</strong>
+                  <p>${project.subtitle}</p>
+                </div>
+                <div>
+                  <strong>Screenshot Count</strong>
+                  <p>20 refreshed boards selected and reorganised for the web sequence.</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-hero-media">
+              <div class="hero-image-frame">
+                <img src="${project.boardImage}" alt="${project.title} hero board" loading="lazy">
+              </div>
+              <div class="phase-strip">${phaseTags}</div>
+            </div>
+          </article>
+          <div class="project-sheets" id="sheets-${project.slug}"></div>
+        </section>
+      `;
+    }
+
+    function chunkItems(items, size) {
+      const chunks = [];
+      for (let index = 0; index < items.length; index += size) {
+        const chunk = items.slice(index, index + size);
+        if (chunk.length) {
+          chunks.push(chunk);
+        }
+      }
+      return chunks;
+    }
+
+    function createMediaGrid(project, items, boardNumber) {
+      const frames = items.map((item, index) => `
+        <div class="media-frame">
+          <img src="${item.src}" alt="${project.title} crop ${boardNumber}-${index + 1}" loading="lazy">
+        </div>
+      `).join("");
+
+      return `
+        <div class="sheet-media-grid">
+          ${frames}
+        </div>
+      `;
+    }
+
+    function createSheet(project, items, index) {
+      const phase = project.phases[Math.min(index, project.phases.length - 1)];
+      const boardNumber = String(index + 1).padStart(2, "0");
+      const layout = layouts[0];
+      const pages = [...new Set(items.map((item) => item.page))].sort((a, b) => a - b);
+      const pageLabel = pages.map((page) => pad(page)).join(", ");
+      const cropSources = items.map((item) => item.source === "pdf-object" ? "direct image extraction" : "page crop").join(", ");
+      const brief = `${phase.caption} ${slotNotes[Math.min(index, slotNotes.length - 1)]}`;
+
+      return `
+        <article class="folio-sheet layout-${layout} reveal">
+          <div class="sheet-head">
+            <div>
+              <div class="sheet-subtitle">${project.index} / ${project.title}</div>
+              <h3>${phase.name}</h3>
+            </div>
+            <div class="sheet-subtitle">${project.subtitle}</div>
+            <div class="sheet-count">Board ${boardNumber} / PDF pages ${pageLabel}</div>
+          </div>
+
+          <div class="sheet-body">
+            <aside class="sheet-note">
+              <strong>Brief</strong>
+              <p>${brief}</p>
+              <div class="sheet-meta">
+                <span>Chapter: ${phase.name}</span>
+                <span>Project focus: ${project.focus}</span>
+                <span>Source pages: ${project.title} PDF pages ${pageLabel}</span>
+                <span>Image source: ${cropSources}</span>
+              </div>
+            </aside>
+
+            <div class="sheet-media">
+              ${createMediaGrid(project, items, boardNumber)}
+            </div>
+          </div>
+
+          <div class="sheet-footer">
+            <span>${project.year} portfolio board sequence</span>
+            <span>${phase.name} / Crop board ${boardNumber}</span>
+          </div>
+        </article>
+      `;
+    }
+
+    const navRoot = document.getElementById("projects-nav");
+    const projectsRoot = document.getElementById("projects-root");
+    const cropManifest = window.portfolioCropManifest || {};
+
+    navRoot.innerHTML = projects.map(createProjectNav).join("");
+    projectsRoot.innerHTML = projects.map(createHeader).join("");
+
+    projects.forEach((project) => {
+      const target = document.getElementById(`sheets-${project.slug}`);
+      const projectManifest = cropManifest[project.slug];
+      const crops = projectManifest?.crops || [];
+      const desiredSheets = Math.max(4, Math.min(5, projectManifest?.sheets || 0));
+      const groups = chunkItems(crops, 3).slice(0, desiredSheets);
+
+      if (!groups.length) {
+        target.innerHTML = `
+          <article class="sheet-empty reveal">
+            This section is hidden for now because there are not enough isolated image crops to build a clean board sequence.
+          </article>
+        `;
+        return;
+      }
+
+      target.innerHTML = groups.map((items, index) => createSheet(project, items, index)).join("");
+    });
+  </script>
 </body>
 </html>
